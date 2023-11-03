@@ -1,0 +1,17 @@
+ ˛∫æ   > õ  com/sd/Hiwi/DeliveryLogIn  javax/servlet/http/HttpServlet <init> ()V Code
+  	   LineNumberTable LocalVariableTable this Lcom/sd/Hiwi/DeliveryLogIn; doGet R(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V 
+Exceptions  javax/servlet/ServletException  java/io/IOException  	text/html    &javax/servlet/http/HttpServletResponse   setContentType (Ljava/lang/String;)V      	getWriter ()Ljava/io/PrintWriter; " Username $ & % %javax/servlet/http/HttpServletRequest ' ( getParameter &(Ljava/lang/String;)Ljava/lang/String; * password , "jdbc:mysql://localhost:3306/dataaa . root 0 me@sd
+ 2 4 3 java/sql/DriverManager 5 6 getConnection M(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; 8 ;select * from delivery where firstName = ? and password = ? : < ; java/sql/Connection = > prepareStatement 0(Ljava/lang/String;)Ljava/sql/PreparedStatement; @ B A java/sql/PreparedStatement C D 	setString (ILjava/lang/String;)V @ F G H executeQuery ()Ljava/sql/ResultSet; J L K java/sql/ResultSet M N next ()Z P java/lang/StringBuilder R Hello 
+ O T  
+ O V W X append -(Ljava/lang/String;)Ljava/lang/StringBuilder; Z  <br> \ byou will recieve order throw your email stay tuned <a href = Delivery.jsp>click here to logout</a>
+ O ^ _ ` toString ()Ljava/lang/String;
+ b d c java/io/PrintWriter e  println g G<center><h1 style = color:red>wrong password or user name</p></center>  i Delivery.jsp $ k l m getRequestDispatcher 5(Ljava/lang/String;)Ljavax/servlet/RequestDispatcher; o q p javax/servlet/RequestDispatcher r s include @(Ljavax/servlet/ServletRequest;Ljavax/servlet/ServletResponse;)V
+ b u e v (Ljava/lang/Object;)V
+ x z y java/lang/Exception {  printStackTrace request 'Ljavax/servlet/http/HttpServletRequest; response (Ljavax/servlet/http/HttpServletResponse; out Ljava/io/PrintWriter; Name Ljava/lang/String; Pass conn Ljava/sql/Connection; stm Ljava/sql/PreparedStatement; rs Ljava/sql/ResultSet; rd !Ljavax/servlet/RequestDispatcher; e Ljava/lang/Exception; StackMapTable ë java/lang/String doPost
+  î   
+SourceFile DeliveryLogIn.java RuntimeVisibleAnnotations %Ljavax/servlet/annotation/WebServlet; value /DeliveryLogIn !               /     *∑ ±    
+                                 —  
+   ¨,π  ,π  N+!π # :+)π # :+-/∏ 1:7π 9 :π ? π ? π E :π I ô %-ª OYQ∑ S∂ UY∂ U[∂ U∂ ]∂ aß ,-f∂ a+hπ j :		+,π n ß :-∂ t∂ w±  # õ û x  
+   N           #   . ! 9 " C # M $ V % ` '  ( Ç , à - í . õ 2 † 3 ¶ 4 ´ 7    p    ¨       ¨ | }    ¨ ~    ù Ä Å   ì Ç É  # â Ñ É  . m Ö Ü  9 b á à  V E â ä  í 	 ã å 	 †  ç é  è   A ˇ Ç 	  $  b ê ê : @ J  ˇ    $  b ê ê  x  í             I     *+,∂ ì±    
+   
+    <  =                 | }     ~    ï    ñ ó     ò  ô[ s ö

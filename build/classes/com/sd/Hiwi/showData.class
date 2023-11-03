@@ -1,0 +1,19 @@
+ ˛∫æ   > π  com/sd/Hiwi/showData  javax/servlet/http/HttpServlet <init> ()V Code
+  	   LineNumberTable LocalVariableTable this Lcom/sd/Hiwi/showData; doGet R(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V 
+Exceptions  javax/servlet/ServletException  java/io/IOException  	text/html    &javax/servlet/http/HttpServletResponse   setContentType (Ljava/lang/String;)V      	getWriter ()Ljava/io/PrintWriter; " "jdbc:mysql://localhost:3306/dataaa $ root & me@sd
+ ( * ) java/sql/DriverManager + , getConnection M(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; . select * from food 0 2 1 java/sql/Connection 3 4 createStatement ()Ljava/sql/Statement; 6 8 7 java/sql/Statement 9 : executeQuery ((Ljava/lang/String;)Ljava/sql/ResultSet; < > = java/sql/ResultSet ? @ getMetaData ()Ljava/sql/ResultSetMetaData; B D C java/sql/ResultSetMetaData E F getColumnCount ()I H (<html style = 'background-color:silver'>
+ J L K java/io/PrintWriter M  println O !<table style = 'font-size: 30px'> Q )<h1>Food Name And It's Price</h1><hr><hr> S <thead> U &<tr style = 'background-color: brown'> W java/lang/StringBuilder Y &<th style = 'border: 1px solid black'>
+ V [   B ] ^ _ getColumnName (I)Ljava/lang/String;
+ V a b c append -(Ljava/lang/String;)Ljava/lang/StringBuilder; e </th>
+ V g h i toString ()Ljava/lang/String; k ><th colspan = '3'style = 'border: 1px solid black'>Action</th> m </tr></thead> o <tbody> q %<tr style = 'background-color: cyan'> s &<td style = 'border: 1px solid black'> < u v _ 	getString x </td> < z { | 	getDouble (I)D
+ V ~ b  (D)Ljava/lang/StringBuilder; Å H<td style = 'border: 1px solid black'><a href = addFood.jsp>add</a></td> É N<td style = 'border: 1px solid black'><a href = deleteFood.jsp>delete</a></td> Ö N<td style = 'border: 1px solid black'><a href = updateFood.jsp>update</a></td> á </tr></tbody> < â ä ã next ()Z ç </table è /<br><p><a href = adminadata.jsp>go back</a></p> ë </html>
+ J ì M î (Ljava/lang/Object;)V ñ java/lang/Exception request 'Ljavax/servlet/http/HttpServletRequest; response (Ljavax/servlet/http/HttpServletResponse; out Ljava/io/PrintWriter; conn Ljava/sql/Connection; sql1 Ljava/lang/String; stm Ljava/sql/Statement; rs Ljava/sql/ResultSet; dd Ljava/sql/ResultSetMetaData; columnNumber I e Ljava/lang/Exception; StackMapTable ≠ %javax/servlet/http/HttpServletRequest Ø java/lang/String doPost
+  ≤   
+SourceFile showData.java RuntimeVisibleAnnotations %Ljavax/servlet/annotation/WebServlet; value 	/showData !               /     *∑ ±    
+                                 ò  
+  =,π  ,π  N!#%∏ ':-:π / :π 5 :π ; :π A 6	-G∂ I-N∂ I-P∂ I-R∂ I-T∂ I-ª VYX∑ Zπ \ ∂ `d∂ `∂ f∂ I-ª VYX∑ Zπ \ ∂ `d∂ `∂ f∂ I-j∂ I-l∂ Iß g-n∂ I-p∂ I-ª VYr∑ Zπ t ∂ `w∂ `∂ f∂ I-ª VYr∑ Zπ y ∂ }w∂ `∂ f∂ I-Ä∂ I-Ç∂ I-Ñ∂ I-Ü∂ Iπ à öˇï-å∂ I-é∂ I-ê∂ Iß :-∂ í±  14 ï  
+   Ü !            '  2 " ; $ D & J ' P ( V ) \ * b + Ç , ¢ - ® . Æ / ± 1 ∑ 2 Ω 3 › 4 ˝ 5 6	 7 8 / ;% <+ =1 @6 A< D    p   =      = ó ò   = ô ö  . õ ú   ù û   ü †  '
+ ° ¢  2 ˇ £ §  ; ˆ • ¶  D Ì ß ® 	6  © ™  ´   ? ˇ ± 
+  ¨  J 0 Æ 6 < B  ˚ cˇ    ¨  J  ï  ∞             I     *+,∂ ±±    
+   
+    G  H                 ó ò     ô ö   ≥    ¥ µ     ∂  ∑[ s ∏
